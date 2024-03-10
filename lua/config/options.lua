@@ -1,3 +1,9 @@
+-- Neovim built-in configuration.
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+-- Line number.
 vim.opt.number = true
 vim.opt.relativenumber = true
 
