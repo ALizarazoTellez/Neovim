@@ -3,11 +3,14 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.opt.textwidth = 78
+vim.opt.wrap = false
+
 -- Line number.
 vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Tabs.
-vim.opt.tabstop = 3 -- Show existing tabs with 3 spaces width.
-vim.opt.shiftwidth = 3
 vim.opt.expandtab = false -- Always use tabs.
+vim.opt.shiftwidth = 3
+vim.opt.tabstop = 3 -- Show existing tabs with 3 spaces width.
