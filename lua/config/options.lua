@@ -3,6 +3,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Scroll off.
+vim.opt.scrolloff = 7
+vim.opt.sidescrolloff = 14
+
 -- Folds.
 vim.opt.foldminlines = 7
 
