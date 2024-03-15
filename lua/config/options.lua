@@ -3,6 +3,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Folds.
+vim.opt.foldminlines = 7
+
 -- Line wrap.
 vim.opt.textwidth = 78
 vim.opt.wrap = false

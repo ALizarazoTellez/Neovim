@@ -2,6 +2,11 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 
+	init = function()
+		vim.opt.foldmethod = "expr"
+		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+	end,
+
 	opts = {
 		-- A list of parser names, or "all" (the five listed parsers should always be installed)
 		ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
@@ -28,7 +33,7 @@ return {
 			-- list of language that will be disabled
 			--disable = { "c", "rust" },
 			-- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-			disable = function(lang, buf)
+			disable = function(_, buf)
 				local max_filesize = 100 * 1024 -- 100 KB
 				local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
 				if ok and stats and stats.size > max_filesize then
