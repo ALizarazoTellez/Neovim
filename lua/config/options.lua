@@ -3,8 +3,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Line wrap.
 vim.opt.textwidth = 78
 vim.opt.wrap = false
+vim.opt.linebreak = true
 
 -- Line number.
 vim.opt.number = true
