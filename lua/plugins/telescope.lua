@@ -8,12 +8,14 @@ return {
 	cmd = "Telescope",
 
 	keys = {
-		{ "<Leader>fg", nil, desc = "Search for string in the current working directory" },
+		{ "<Leader>ts", nil, desc = "Search for string in the current working directory" },
+		{ "<Leader>tw", nil, desc = "Search for word in the current working directory" },
 	},
 
 	config = function()
 		local builtin = require("telescope.builtin")
 
-		vim.keymap.set("n", "<Leader>fg", builtin.live_grep, {})
+		vim.keymap.set("n", "<Leader>ts", builtin.live_grep, {})
+		vim.keymap.set("n", "<Leader>tw", builtin.grep_string, {})
 	end,
 }
