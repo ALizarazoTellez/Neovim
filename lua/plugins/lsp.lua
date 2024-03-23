@@ -1,6 +1,8 @@
 return {
 	"neovim/nvim-lspconfig",
 
+	lazy = true,
+
 	config = function(_, _)
 		-- Global mappings.
 		-- See `:help vim.diagnostic.*` for documentation on any of the below functions
