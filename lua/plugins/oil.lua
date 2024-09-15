@@ -11,39 +11,35 @@ return {
 	},
 
 	opts = {
-		-- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
-		-- Set to false if you want some other plugin (e.g. netrw) to open when you edit directories.
 		default_file_explorer = true,
-		-- Id is automatically added at the beginning, and name at the end
-		-- See :help oil-columns
 		columns = {
 			"icon",
-			-- "permissions",
-			-- "size",
-			-- "mtime",
 		},
-		-- Buffer-local options to use for oil buffers
+		-- Buffer-local options to use for oil buffers.
 		buf_options = {
 			buflisted = false,
 			bufhidden = "hide",
 		},
 		-- Window-local options to use for oil buffers
 		win_options = {
-			wrap = false,
-			signcolumn = "no",
+			concealcursor = "nvic",
+			conceallevel = 3,
 			cursorcolumn = false,
 			foldcolumn = "0",
-			spell = false,
 			list = false,
-			conceallevel = 3,
-			concealcursor = "nvic",
+			signcolumn = "no",
+			spell = false,
+			wrap = false,
+			fillchars = "eob: ", -- Hide the `~` on empty lines.
+			number = false,
+			relativenumber = false,
 		},
-		-- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
+		-- Send deleted files to the trash instead of permanently deleting them (:help oil-trash).
 		delete_to_trash = true,
 		-- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
 		skip_confirm_for_simple_edits = false,
 		-- Selecting a new/moved/renamed file or directory will prompt you to save changes first
-		-- (:help prompt_save_on_select_new_entry)
+		-- (:help prompt_save_on_select_new_entry).
 		prompt_save_on_select_new_entry = true,
 		-- Oil will automatically delete hidden buffers after this delay
 		-- You can set the delay to false to disable cleanup entirely
@@ -71,7 +67,7 @@ return {
 		-- See :help oil-actions for a list of all available actions
 		keymaps = {
 			["g?"] = "actions.show_help",
-			["<CR>"] = "actions.select",
+			["<Enter>"] = "actions.select",
 			["<C-s>"] = { "actions.select", opts = { vertical = true }, desc = "Open the entry in a vertical split" },
 			["<C-h>"] = {
 				"actions.select",
@@ -116,28 +112,13 @@ return {
 				{ "name", "asc" },
 			},
 		},
-		-- Extra arguments to pass to SCP when moving/copying files over SSH
-		extra_scp_args = {},
-		-- EXPERIMENTAL support for performing file operations with git
-		git = {
-			-- Return true to automatically git add/mv/rm files
-			add = function(path)
-				return false
-			end,
-			mv = function(src_path, dest_path)
-				return false
-			end,
-			rm = function(path)
-				return false
-			end,
-		},
 		-- Configuration for the floating window in oil.open_float
 		float = {
 			-- Padding around the floating window
-			padding = 2,
-			max_width = 0,
-			max_height = 0,
-			border = "rounded",
+			padding = 0,
+			max_width = math.floor(vim.o.columns * 0.8),
+			max_height = math.floor((vim.o.lines - vim.o.cmdheight) * 0.8),
+			border = "solid",
 			win_options = {
 				winblend = 0,
 			},
@@ -167,34 +148,12 @@ return {
 			min_height = { 5, 0.1 },
 			-- optionally define an integer/float for the exact height of the preview window
 			height = nil,
-			border = "rounded",
+			border = "solid",
 			win_options = {
 				winblend = 0,
 			},
 			-- Whether the preview window is automatically updated when the cursor is moved
 			update_on_cursor_moved = true,
-		},
-		-- Configuration for the floating progress window
-		progress = {
-			max_width = 0.9,
-			min_width = { 40, 0.4 },
-			width = nil,
-			max_height = { 10, 0.9 },
-			min_height = { 5, 0.1 },
-			height = nil,
-			border = "rounded",
-			minimized_border = "none",
-			win_options = {
-				winblend = 0,
-			},
-		},
-		-- Configuration for the floating SSH window
-		ssh = {
-			border = "rounded",
-		},
-		-- Configuration for the floating keymaps help window
-		keymaps_help = {
-			border = "rounded",
 		},
 	},
 }
