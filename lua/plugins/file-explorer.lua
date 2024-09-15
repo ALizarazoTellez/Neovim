@@ -3,7 +3,7 @@
 return {
 	"stevearc/oil.nvim",
 
-	dependencies = "echasnovski/mini.icons",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 
 	cmd = "Oil",
 	keys = {
