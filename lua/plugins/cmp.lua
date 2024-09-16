@@ -14,6 +14,7 @@ return {
 		cmp.setup({
 			sources = {
 				{ name = "nvim_lsp" },
+				{ name = "buffer" },
 			},
 			snippet = {
 				expand = function(args)
@@ -26,7 +27,17 @@ return {
 				["<C-f>"] = cmp.mapping.scroll_docs(3),
 
 				["<C-e>"] = cmp.mapping.abort(),
-				["<Tab>"] = cmp.mapping.confirm({ select = true }),
+				["<Tab>"] = cmp.mapping({
+					i = function(fallback)
+						if cmp.visible() then
+							cmp.confirm({ select = true })
+						elseif vim.snippet.active({ direction = 1 }) then
+							vim.snippet.jump(1)
+						else
+							fallback()
+						end
+					end,
+				}),
 				["<Enter>"] = cmp.mapping({
 					i = function(fallback)
 						if cmp.visible() and cmp.get_active_entry() then
