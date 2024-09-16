@@ -1,9 +1,18 @@
 return {
 	"neovim/nvim-lspconfig",
 
-	lazy = true,
+	dependencies = {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+	},
+
+	cmd = "LspInstall",
 
 	config = function()
+		-- Configure mason.
+		require("mason").setup()
+		require("mason-lspconfig").setup()
+
 		-- Executes the callback function every time a
 		-- language server is attached to a buffer.
 		vim.api.nvim_create_autocmd("LspAttach", {
