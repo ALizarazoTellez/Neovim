@@ -14,3 +14,14 @@ vim.opt.relativenumber = true
 
 vim.opt.scrolloff = 7
 vim.opt.sidescrolloff = 14
+
+vim.opt.showmode = false -- Replaced by LuaLine.
+
+vim.opt.wrap = false
+
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
+
+vim.opt.undofile = true
+
+vim.opt.fillchars = { eob = "" }
