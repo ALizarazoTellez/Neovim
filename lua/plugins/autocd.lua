@@ -1,5 +1,13 @@
 return {
 	"ALizarazoTellez/autocd-nvim",
 
-	config = true,
+	opts = {
+		enabled = true,
+
+		markers = {
+			".gitignore",
+			".git",
+			"go.mod",
+		},
+	},
 }
