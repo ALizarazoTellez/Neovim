@@ -16,3 +16,8 @@ vim.diagnostic.config({
 		source = "if_many",
 	},
 })
+
+-- Mappings.
+vim.keymap.set("v", "<Leader>y", '"+y')
+vim.keymap.set("n", "<Leader>y", 'V"+y')
+vim.keymap.set("n", "<Leader>p", '"+p')
