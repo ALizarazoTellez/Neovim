@@ -9,6 +9,7 @@ return {
 			callback = function(event)
 				local opts = { buffer = event.buf }
 
+				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 				vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float, opts)
 				vim.keymap.set("n", "<Leader>r", vim.lsp.buf.rename, opts)
 
