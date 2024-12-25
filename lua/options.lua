@@ -27,4 +27,4 @@ vim.opt.undofile = true
 vim.opt.fillchars = { eob = "" }
 
 vim.opt.list = true
-vim.opt.listchars = { trail = "␣" }
+vim.opt.listchars = { trail = "␣", tab = "  " }
