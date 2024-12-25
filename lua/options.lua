@@ -25,3 +25,6 @@ vim.opt.cursorlineopt = "number"
 vim.opt.undofile = true
 
 vim.opt.fillchars = { eob = "" }
+
+vim.opt.list = true
+vim.opt.listchars = { trail = "␣" }
