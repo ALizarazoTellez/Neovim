@@ -5,11 +5,6 @@ return {
 
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 
-	cmd = "Oil",
-	keys = {
-		{ "<Leader>e", "<Cmd>Oil --float<Enter>", desc = "Open file explorer" },
-	},
-
 	opts = {
 		default_file_explorer = true,
 		columns = {
