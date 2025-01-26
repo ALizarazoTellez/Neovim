@@ -3,7 +3,13 @@
 return {
 	"stevearc/oil.nvim",
 
+	lazy = false,
+
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+
+	keys = {
+		{ "<Leader>e", "<Cmd>Oil --float<Enter>", desc = "Open file explorer" },
+	},
 
 	opts = {
 		default_file_explorer = true,
@@ -113,7 +119,7 @@ return {
 			padding = 0,
 			max_width = math.floor(vim.o.columns * 0.8),
 			max_height = math.floor((vim.o.lines - vim.o.cmdheight) * 0.8),
-			border = "solid",
+			border = "rounded",
 			win_options = {
 				winblend = 0,
 			},
